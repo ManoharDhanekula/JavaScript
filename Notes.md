@@ -85,6 +85,9 @@ What is Difference B/w Parameters and Arguments?
 
 **IIFE - Immediately Invoked Function Expression **
 
+- name clash / namespace Free.
+- Tool to convert IIFE WebPAck Tool.
+
 ```js
 (function double(n) {
   console.log(n * 2);
@@ -188,6 +191,42 @@ function calucation(children) {
 console.log("Total of Cart : ", calucation(children));
 ```
 
+**Ex -2**
+
+```js
+const library = [
+  {
+    title: "The Great Gatsby",
+    authors: ["F. Scott Fitzgerald"],
+    borrowed: true,
+  },
+  { title: "To Kill a Mockingbird", authors: ["Harper Lee"], borrowed: true },
+  { title: "1984", authors: ["George Orwell"], borrowed: true },
+  { title: "The Hobbit", authors: ["J.R.R. Tolkien"], borrowed: true },
+  { title: "Brave New World", authors: ["Aldous Huxley"], borrowed: true },
+];
+
+// Task 1: Determine if all books in the library have been borrowed.
+
+function borrowed9(library) {
+  let sum;
+  let arr = [];
+  for (let i = 0; i < library.length; i++) {
+    sum = library[i].borrowed;
+    arr.push(sum);
+  }
+  var Boolean = arr.includes(true);
+  if (Boolean == true) {
+    console.log("All books in the library have been borrowed.");
+  } else {
+    console.log("Not all books in the library have been borrowed.");
+  }
+}
+borrowed9(library);
+
+// Task 2: Determine if there are books in the library written by multiple authors
+```
+
 ## Array
 
 https://ragavkumarv.com/array-methods/?method=map
@@ -221,4 +260,136 @@ if (person.place && person.place.city) {
 }
 
 console.log(person?.place?.city);
+```
+
+---
+
+**Optional Changing**
+**Ternary Operator**
+
+```js
+condition ? exprIfTrue : exprIfFalse;
+```
+
+---
+
+---
+
+# Day 4
+
+**Hoisting**
+
+- Var , Function - Hoisted.
+- let , const - Not Hoisted.
+
+**Java Script is a JIT - Just In Time Compilation.**
+
+- In this JLT have to phase.
+- 1st Phase - Compilation.
+- 2nd Phase - Exection.
+
+_JavaScript Engine have Two Phases are JS and Exicution Engine_
+
+**TDZ - Temporal Dead Zone.**
+
+```js
+var price = 200;
+
+function get() {
+  // TDZ - Temporal Dead Zone.
+  console.log(price);
+  let price = 400;
+  console.log(price);
+}
+get();
+```
+
+**Predicate function are which returns a Boolean**
+**Array.map()**
+
+- Its always returns copy of the Array.
+- sourceArray.length === outputArray.length -> true
+- Transforms data type
+
+**Array.filter()**
+
+- It always returns copy of the array
+- sourceArray.length >= outputArray.length -> true
+- input data type === output data type
+
+**https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array**
+
+**Imperative vs Declarative**
+
+| Imperative                             | Declarative                                 |
+| -------------------------------------- | ------------------------------------------- |
+| How To do.                             | What to do.                                 |
+| Increses the code length.              | Reduces the Logics.                         |
+| It will increase the serimoial things. | It will reduce the extra serimonial things. |
+
+**Array Function**
+**Ex - 7**
+
+```js
+const players = [
+  { name: "Alice", skills: ["defense", "speed"] },
+  { name: "Bob", skills: ["speed", "attack", "strategy"] },
+  { name: "Charlie", skills: ["speed", "attack"] },
+  { name: "David", skills: ["strategy", "defense", "speed"] },
+  { name: "Eva", skills: ["speed", "strategy"] },
+];
+
+const requiredSkills = ["speed", "strategy"];
+
+// Output
+// Bob, David, Eva
+
+const recommendskills = players
+  .filter((player) =>
+    requiredSkills.every((skill) => player.skills.includes(skill))
+  )
+  .map((x) => x.name)
+  .join(",");
+
+console.log(recommendskills);
+```
+
+**Ex - 8**
+
+```js
+// Ex 8: Employess Promotion (more than 80 eligible)
+const employes = [
+  { id: 1, name: "Alice", grade: 78 },
+  { id: 2, name: "Bob", grade: 85 },
+  { id: 3, name: "Charlie", grade: 92 },
+  { id: 4, name: "David", grade: 88 },
+  { id: 5, name: "Eva", grade: 76 },
+];
+
+// This should output:
+// [{ id: 2, status: 'Promoted' }, { id: 3, status: 'Promoted' }, { id: 4, status: 'Promoted' }]
+
+const statusout = employes
+  .filter((out) => out.grade > 80)
+  .map(({ id }) => ({ id: id, status: "Promoted" })); // Object Destructuring
+console.log(statusout);
+```
+
+**Ex - 9**
+
+```js
+const students = [
+  { name: "Alice", score: 85 },
+  { name: "Bob", score: 92 },
+  { name: "Charlie", score: 88 },
+  { name: "David", score: 79 },
+  { name: "Eva", score: 95 },
+];
+
+const ranks = students
+  .toSorted((a, b) => b.score - a.score)
+  .map((x) => x.name)
+  .toSpliced(3)
+  .join(", ");
+console.log(ranks);
 ```
