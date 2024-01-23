@@ -178,17 +178,37 @@
 // console.log(statusout);
 
 // Top 3 Students
-const students = [
-  { name: "Alice", score: 85 },
-  { name: "Bob", score: 92 },
-  { name: "Charlie", score: 88 },
-  { name: "David", score: 79 },
-  { name: "Eva", score: 95 },
-];
+// const students = [
+//   { name: "Alice", score: 85 },
+//   { name: "Bob", score: 92 },
+//   { name: "Charlie", score: 88 },
+//   { name: "David", score: 79 },
+//   { name: "Eva", score: 95 },
+// ];
 
-const ranks = students
-  .toSorted((a, b) => b.score - a.score)
-  .map((x) => x.name)
-  .toSpliced(3)
-  .join(", ");
-console.log(ranks);
+// const ranks = students
+//   .toSorted((a, b) => b.score - a.score)
+//   .map((x) => x.name)
+//   .toSpliced(3)
+//   .join(", ");
+// console.log(ranks);
+
+// Ex10: Use ES6 feature to refactor the code
+// function getUserSubscriptionInfo(user) {
+//   let plan = user?.subscription?.plan?.name || "No Plan";
+//   let status = user?.subscription?.status || "Inactive";
+//   return { plan, status };
+// }
+// // Example user object
+// const user = {
+//   id: "123",
+//   name: "Alice",
+//   subscription: {
+//     plan: { name: "Premium" },
+//     status: "Active",
+//   },
+// };
+// console.log(getUserSubscriptionInfo(user));
+
+let m = [1, 2, 3, 4, 5, 6];
+console.log(Math.max(1, 2, ...m));
