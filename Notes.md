@@ -491,3 +491,14 @@ git reset --soft HEAD~ || git reset --soft HEAD^ - For Deleting the last commit 
 but not in the github repositories.
 for last commits to delete use the command git reset --soft HEAD~2```
 ````
+
+**https://www.atlassian.com/git/glossary#terminology**
+
+**GitHub Fork**
+
+- With Command Lines "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo?tool=cli"
+
+- https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+- Fork the repository.
+- Make the fix.
+- Submit a pull request to the project owner.
