@@ -486,6 +486,8 @@ JSON.stringify(user);
 
 - How to delete the Commit ?
 
-```
-
-```
+````
+git reset --soft HEAD~ || git reset --soft HEAD^ - For Deleting the last commit in the vscode
+but not in the github repositories.
+for last commits to delete use the command git reset --soft HEAD~2```
+````
