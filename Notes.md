@@ -19,6 +19,15 @@ let t2 = t1.comcat();
 console.log(t2);
 ```
 
+### Copy by Reference
+
+```js
+let a = [1, 3, 5];
+let b = a;
+```
+
+- In this the b is refering the a values in the array.
+
 ### Template Literal
 
 ```js
@@ -120,6 +129,10 @@ _Object.value()_
 ```js
 
 ```
+
+**Spread VS operater**
+
+**https://ragavkumarv.com/blog/spread-vs-rest/#spread-vs-rest-operator**
 
 **Ex - 1**
 
@@ -265,6 +278,13 @@ console.log(person?.place?.city);
 ---
 
 **Optional Changing**
+
+```js
+person?.place?.city;
+```
+
+**Nullish coalescing operator (??)**
+
 **Ternary Operator**
 
 ```js
@@ -392,4 +412,80 @@ const ranks = students
   .toSpliced(3)
   .join(", ");
 console.log(ranks);
+```
+
+---
+
+---
+
+# Day 5
+
+**Ex - 10**
+
+```js
+// Ex10: Use ES6 feature to refactor the code
+function getUserSubscriptionInfo(user) {
+  let plan = user?.subscription?.plan?.name || "No Plan";
+  let status = user?.subscription?.status || "Inactive";
+  return { plan, status };
+}
+// Example user object
+const user = {
+  id: "123",
+  name: "Alice",
+  subscription: {
+    plan: { name: "Premium" },
+    status: "Active",
+  },
+};
+console.log(getUserSubscriptionInfo(user));
+```
+
+## JSON
+
+**Kotlin**
+
+- Is inverted by the Google.
+  **Swift**
+- It is usedin the Iphone.
+
+_JSON is a Loose Coupling_
+
+_JSON is a Universal Gloy_
+
+**https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON**
+
+```js
+const user = {
+  id: "123",
+  name: "Alice",
+  subscription: {
+    plan: { name: "Premium" },
+    status: "Active",
+  },
+};
+
+JSON.stringify(user);
+```
+
+**JIRA**
+
+- It is a Tickect Flatform.
+
+## GIT
+
+- git fetch --all
+- git branch -D branch_name
+- git --graph
+
+---
+
+---
+
+# Task 3
+
+- How to delete the Commit ?
+
+```
+
 ```
