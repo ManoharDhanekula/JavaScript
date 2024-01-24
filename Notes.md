@@ -477,3 +477,15 @@ JSON.stringify(user);
 - git fetch --all
 - git branch -D branch_name
 - git --graph
+
+---
+
+---
+
+# Task 3
+
+- How to delete the Commit ?
+
+```
+
+```
