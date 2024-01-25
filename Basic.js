@@ -210,5 +210,77 @@
 // };
 // console.log(getUserSubscriptionInfo(user));
 
-let m = [1, 2, 3, 4, 5, 6];
-console.log(Math.max(1, 2, ...m));
+// let m = [1, 2, 3, 4, 5, 6];
+// console.log(Math.max(1, 2, ...m));
+
+// const company = {
+//   departments: [
+//     {
+//       name: "Engineering",
+//       manager: { name: "Manoj" },
+//     },
+//     {
+//       name: "Sales",
+//       manager: { name: "RDX" },
+//     },
+//   ],
+// };
+
+// function getDepartmentManager(company, departmentName) {
+//   const department = company?.departments?.find(
+//     (dept) => dept.name === departmentName
+//   )?.manager?.name;
+//   return department || "Manager not found";
+// }
+// console.log(getDepartmentManager(company, "Engineering"));
+
+// const matrix = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ];
+
+// const getMatrixElement = (matrix, row, col) => {
+//   var element = matrix?.[row]?.[col] || "Element not found";
+//   return element;
+// };
+// console.log(getMatrixElement(matrix, 2, 1));
+
+// const stock = [
+//   { inventory: { count: 1 }, name: "Prod 1" },
+//   { inventory: { count: 0 }, name: "Prod 2" },
+//   { inventory: { count: 1 }, name: "Prod 3" },
+//   { inventory: { count: 0 }, name: "Prod 4" },
+//   { inventory: { count: 10 }, name: "Prod 5" },
+// ];
+
+// function isProductInStock(stock) {
+//   for (var prod of stock) {
+//     console.log(
+//       prod?.inventory?.count ? "Product Available" : "Product not in stock"
+//     );
+//   }
+// }
+
+// isProductInStock(stock);
+
+function getUserEmail(user) {
+  for (var item of user) {
+    console.log(
+      item?.contact?.email ? item?.contact?.email : "email not provided"
+    );
+  }
+}
+
+const user = [
+  {
+    name: "Smith",
+    contact: {
+      email: "all@example.com",
+    },
+  },
+  {
+    name: "Bob",
+  },
+];
+getUserEmail(user);
