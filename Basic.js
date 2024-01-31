@@ -456,3 +456,169 @@ const comments = [
 // }
 
 // slideShow(colors);
+
+// setTimeout(() => {
+//   console.log("Hello");
+//   setTimeout(() => {
+//     console.log("Hello");
+//     setTimeout(() => {
+//       console.log("Hello");
+//     }, 2000);
+//   }, 2000);
+// }, 2000);
+
+///var count = 10;
+
+// setInterval(newyear, 2000);
+
+// function newyear(count) {
+//   let sub = 0;
+//   if (sub <= 10) {
+//     console.log(count);
+//     count = count - sub;
+//     sub++;
+//   } else {
+//     console.log("Happy New Year");
+//     clearInterval();
+//   }
+// }
+// newyear(count);
+
+// setTimeout(() => {
+//   console.log(count);
+//   setTimeout(() => {
+//     console.log(--count);
+//     setTimeout(() => {
+//       console.log(--count);
+//       setTimeout(() => {
+//         console.log(--count);
+//         setTimeout(() => {
+//           console.log(--count);
+//           setTimeout(() => {
+//             console.log(--count);
+//             setTimeout(() => {
+//               console.log(--count);
+//               setTimeout(() => {
+//                 console.log(--count);
+//                 setTimeout(() => {
+//                   console.log(--count);
+//                   setTimeout(() => {
+//                     console.log(--count);
+// setTimeout(() => {
+//   console.log("Happy New Year 🎉");
+// }, 1000);
+//                   }, 1000);
+//                 }, 1000);
+//               }, 1000);
+//             }, 1000);
+//           }, 1000);
+//         }, 1000);
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
+
+// var drivingTest = new Promise((resolve, reject) => {
+//   let age = 20;
+//   console.log(typeof reject);
+//   if (age >= 18) {
+//     resolve("Your are Eligible ");
+//   } else {
+//     reject("Try After some Years");
+//   }
+// });
+
+// console.log(drivingTest);
+
+// var drivingTest = new Promise((resolve, reject) => {
+//   let age = 18;
+//   console.log(typeof reject);
+//   if (age >= 18) {
+//     resolve("Your are Eligible ");
+//   } else {
+//     reject("Try After some Years");
+//   }
+// });
+
+// console.log(drivingTest);
+
+// var drivingTest = new Promise((resolve, reject) => {
+//   let age = 10;
+//   if (age >= 18) {
+//     setTimeout(() => {
+//       resolve("Your are Eligible ");
+//     }, 5000);
+//   } else {
+//     reject("Try After some Years");
+//   }
+// });
+// console.log("Test Started");
+// drivingTest
+//   .then((msg) => "Your Result is : " + msg)
+//   .then((x) => x + "Super 🎉🙌🎉")
+//   .then((x) => console.log("Finally,", x))
+//   .catch((msg) => console.log("Oh no : " + msg))
+//   .finally((x) => console.log("Clear : "))
+//   .catch();
+
+// fetch(`https://restcountries.com/v3.1/all`)
+//   .then((x) => x.json())
+//   .then((x) =>
+//     x.filter((data) => data.region == "Europe").map((x) => x.name.common)
+//   )
+//   .then((result) => console.log(result));
+
+// fetch(`https://restcountries.com/v3.1/all`)
+//   .then((x) => x.json())
+//   .then((x) =>
+//     x.sort((a, b) => b.population - a.population).map((x) => x.name.common)
+//   )
+//   .then((result) => console.log(result));
+
+// fetch(`https://restcountries.com/v3.1/all`)
+//   .then((x) => x.json())
+//   .then((x) =>
+//     x
+//       .ToSorted((a, b) => b.population - a.population)
+//       .map((x, i) => console.log(`${i + 1}.${x.name.common} - ${x.population}`))
+//   );
+// .then((result) => console.log(result));
+
+// fetch(`https://restcountries.com/v3.1/all`)
+//   .then((x) => x.json())
+//   .then((x) =>
+//     x
+//       .toSorted((a, b) => b.population - a.population)
+//       .slice(0, 10)
+//       .map((x, i) => `${i + 1}.${x.name.common} - ${x.population}`)
+//       .join("\n")
+//   )
+//   .then((result) => console.log(result));
+
+// var f1 = Promise.resolve("Bhavani");
+// var f2 = Promise.resolve("Manoj");
+// var f3 = Promise.resolve("Neha");
+
+// Promise.all([f1, f2, f3])
+//   .then((d) => console.log(d))
+//   .catch((s) => console.log(s));
+
+var f1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Manoj ");
+  }, 5000);
+});
+var f2 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Neha");
+  }, 2000);
+});
+var f3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject("Bhavani ");
+  }, 3000);
+});
+
+Promise.allSettled([f1, f2, f3])
+  .then((d) => console.log(d))
+  .catch((s) => console.log(s));

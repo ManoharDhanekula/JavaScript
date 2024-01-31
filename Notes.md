@@ -791,3 +791,173 @@ setIntervel(function () {
   console.log("Food 🍔🍕");
 }, 2000);
 ```
+
+**Loupe**
+http://latentflip.com/loupe/
+
+- `Call Stack` runs only the JS.
+- `Web Apis` Waiting like timeout,intervals.
+- `Callback Queue` After waiting the Webapi the web api send to the callback queue.
+- `Event Loop` Loops b/w the call stack and callback Queue.
+
+---
+
+---
+
+# Day 7
+
+**Callback hell**
+
+```js
+setTimeout(() => {
+  console.log(count);
+  setTimeout(() => {
+    console.log(--count);
+    setTimeout(() => {
+      console.log(--count);
+      setTimeout(() => {
+        console.log(--count);
+        setTimeout(() => {
+          console.log(--count);
+          setTimeout(() => {
+            console.log(--count);
+            setTimeout(() => {
+              console.log(--count);
+              setTimeout(() => {
+                console.log(--count);
+                setTimeout(() => {
+                  console.log(--count);
+                  setTimeout(() => {
+                    console.log(--count);
+                    setTimeout(() => {
+                      console.log("Happy New Year 🎉");
+                    }, 1000);
+                  }, 1000);
+                }, 1000);
+              }, 1000);
+            }, 1000);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}, 1000);
+```
+
+**Promise**
+
+- Pending ⌛
+- FullField ✅
+- Failed ❌
+
+**FullField ✅**
+
+```js
+var drivingTest = new Promise((resolve, reject) => {
+  let age = 20;
+  console.log(typeof reject);
+  if (age >= 18) {
+    resolve("Your are Eligible ");
+  } else {
+    reject("Try After some Years");
+  }
+});
+
+console.log(drivingTest);
+```
+
+**Failed ❌**
+
+```js
+var drivingTest = new Promise((resolve, reject) => {
+  let age = 18;
+  console.log(typeof reject);
+  if (age >= 18) {
+    resolve("Your are Eligible ");
+  } else {
+    reject("Try After some Years");
+  }
+});
+
+console.log(drivingTest);
+```
+
+**Pending ⌛**
+
+```js
+var drivingTest = new Promise((resolve, reject) => {
+  let age = 18;
+  if (age >= 18) {
+    setTimeout(() => {
+      resolve("Your are Eligible ");
+    }, 5000);
+  } else {
+    console.log("Happy New Year 🎉");
+    reject("Try After some Years");
+  }
+});
+console.log("Test Started");
+console.log(drivingTest);
+```
+
+**Promises methodS**
+
+`then`,`catch`,`finally`
+
+```js
+var drivingTest = new Promise((resolve, reject) => {
+  let age = 10;
+  if (age >= 18) {
+    setTimeout(() => {
+      resolve("Your are Eligible ");
+    }, 5000);
+  } else {
+    reject("Try After some Years");
+  }
+});
+console.log("Test Started");
+drivingTest
+  .then((msg) => "Your Result is : " + msg)
+  .then((x) => x + "Super 🎉🙌🎉")
+  .then((x) => console.log("Finally,", x))
+  .catch((msg) => console.log("Oh no : " + msg))
+  .finally((x) => console.log("Clear : "))
+  .catch();
+```
+
+`all`
+
+```js
+var f1 = Promise.resolve("Bhavani");
+var f2 = Promise.resolve("Manoj");
+var f3 = Promise.resolve("Neha");
+
+Promise.all([f1, f2, f3])
+  .then((d) => console.log(d))
+  .catch((d) => console.log(d));
+```
+
+- Whichever fails first & rest will be leaved(First fail will print)
+
+`Promise.race()`
+
+```js
+Promise.race([f1, f2, f3]).then((d) => console.log(d));
+```
+
+- CDN - Content Delivary Network
+
+**fetch the API**
+
+```js
+fetch(`https://restcountries.com/v3.1/all`)
+  .then((x) => x.json())
+  .then((x) =>
+    x
+      .toSorted((a, b) => b.population - a.population)
+      .slice(0, 10)
+      .map((x, i) => `${i + 1}.${x.name.common} - ${x.population}`)
+      .join("\n")
+  )
+  .then((result) => console.log(result));
+```
