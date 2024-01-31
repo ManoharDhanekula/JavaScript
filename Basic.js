@@ -348,21 +348,111 @@
 // const avg = cate.reduce((acc, cur) => acc + cur, 0) / cate.length;
 // console.log(avg);
 
-const users = [
-  { userId: "U1", name: "Alice" },
-  { userId: "U2", name: "Bob" },
-  // more users...
-];
-const orders = [
-  { userId: "U1", orderDetails: "Order 1 Details" },
-  { userId: "U2", orderDetails: "Order 2 Details" },
-  // more orders...
+// const users = [
+//   { userId: "U1", name: "Alice" },
+//   { userId: "U2", name: "Bob" },
+//   // more users...
+// ];
+// const orders = [
+//   { userId: "U1", orderDetails: "Order 1 Details" },
+//   { userId: "U2", orderDetails: "Order 2 Details" },
+//   // more orders...
+// ];
+
+// const combinedUSerOrder = users
+//   .map((item, i) => Object.assign({}, item, orders[i]))
+//   .map((combined) => ({
+//     name: combined.name,
+//     orderDetails: combined.orderDetails,
+//   }));
+// console.log(combinedUSerOrder);
+
+// const event1Attendees = ["Alice", "Bob", "Charlie"];
+// const event2Attendees = ["Bob", "Dave", "Eve"];
+// const event3Attendees = ["Charlie", "Eve", "Frank"];
+
+// const event4Attendees = event1Attendees.concat(
+//   event2Attendees,
+//   event3Attendees
+// );
+// const nonDublicate = [...new Set(event4Attendees)];
+// console.log(nonDublicate.toSorted());
+
+// const surveyResponses = [
+//   { topics: ["Environment", "Economy"], rating: 4 },
+//   { topics: ["Economy", "Health"], rating: 3 },
+//   { topics: ["Environment", "Politics"], rating: 5 },
+// ];
+
+// //  Step 1
+// var step1 = {
+//   Environment: [4, 5],
+//   Economy: [4, 3],
+//   Health: [3],
+//   Politics: [5],
+// };
+
+// var step2 = { Environment: 4.5, Economy: 3.5, Health: 3, Politics: 5 };
+
+// const report = surveyResponses.reduce()
+
+// console.log(report);
+
+// const products = [
+//   {
+//     name: "Product 1",
+//     stores: [
+//       { storeId: "S1", inventory: 10 },
+//       { storeId: "S2", inventory: 0 },
+//     ],
+//   },
+//   {
+//     name: "Product 2",
+//     stores: [
+//       { storeId: "S1", inventory: 5 },
+//       { storeId: "S2", inventory: 7 },
+//     ],
+//   },
+// ];
+
+// const proInventory = products
+//   .filter((prod) => prod.stores.every((e) => e.inventory > 0))
+//   .map((n) => n.name);
+
+// console.log(proInventory);
+
+const books = [
+  { title: "Book A", author: "Author 1", year: 1999 },
+  { title: "Book B", author: "Author 2", year: 2005 },
+  { title: "Book C", author: "Author 3", year: 2001 },
+  // more books...
 ];
 
-const combinedUSerOrder = users
-  .map((item, i) => Object.assign({}, item, orders[i]))
-  .map((combined) => ({
-    name: combined.name,
-    orderDetails: combined.orderDetails,
-  }));
-console.log(combinedUSerOrder);
+const comments = [
+  { commentId: "c1", text: "Comment 1" },
+  { commentId: "c2", text: "Comment 2", replyTo: "c1" },
+  { commentId: "c3", text: "Comment 3" },
+  // more comments...
+];
+
+// function msgRepect(nOfThings) {
+//   const msgInterval = setInterval(function () {
+//     console.log("Hello");
+//   }, 2000);
+//   setInterval(() => clearInterval(msgInterval), nOfThings * 2000);
+// }
+
+// msgRepect(4);
+// var colors = ["red", "purple", "green"];
+// function slideShow(colors) {
+//   const msgInterval = setInterval(function () {
+//     let i = 0;
+//     if (i > colors.length) {
+//       i = 0;
+//     }
+//     console.log(`%c ${colors[i]}`, `color: ${colors[i]}`);
+//     i++;
+//   }, 2000);
+// }
+
+// slideShow(colors);
