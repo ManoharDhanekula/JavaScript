@@ -443,6 +443,10 @@ console.log(getUserSubscriptionInfo(user));
 
 ## JSON
 
+**serialization and deserialization**
+`
+Serialization is the process of converting data into a compact and structured format suitable for storage and transmission, while Deserialization is the process of converting the serialized data back into its original format.`
+
 **Kotlin**
 
 - Is inverted by the Google.
@@ -451,7 +455,7 @@ console.log(getUserSubscriptionInfo(user));
 
 _JSON is a Loose Coupling_
 
-_JSON is a Universal Gloy_
+_JSON is a Universal Glove_
 
 **https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON**
 
@@ -925,6 +929,8 @@ drivingTest
   .catch();
 ```
 
+- Only we are going the `all`,`race`,`allSettled` for more promises function we use.
+
 `all`
 
 ```js
@@ -949,6 +955,8 @@ Promise.race([f1, f2, f3]).then((d) => console.log(d));
 
 **fetch the API**
 
+- Fetch is a Function which returns a promise object.
+
 ```js
 fetch(`https://restcountries.com/v3.1/all`)
   .then((x) => x.json())
@@ -960,4 +968,69 @@ fetch(`https://restcountries.com/v3.1/all`)
       .join("\n")
   )
   .then((result) => console.log(result));
+```
+
+**Multiple Fetch**
+
+```js
+var f1 = fetch(
+  `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=Chennai&aqi=no`
+)
+  .then((x) => x.json())
+  .then((x) => [
+    `${x.location.name} : ${x.current.temp_c}.0%c , ${x.current.temp_f}.0%f `,
+  ]);
+
+var f2 = fetch(
+  `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=madurai&aqi=no`
+)
+  .then((x) => x.json())
+  .then((x) => [
+    `${x.location.name} : ${x.current.temp_c}.0%c , ${x.current.temp_f}.0%f `,
+  ]);
+
+var f3 = fetch(
+  `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=Guntur&aqi=no`
+)
+  .then((x) => x.json())
+  .then((x) => [
+    `${x.location.name} : ${x.current.temp_c}.0%c , ${x.current.temp_f}.0%f `,
+  ]);
+
+Promise.all([f1, f2, f3]).then((x) => console.log(Object.fromEntries(x)));
+```
+
+```js
+const citys = ["madurai", "Chennai", "Guntur"];
+function getTemp(city) {
+  return fetch(
+    `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=${city}&aqi=no`
+  )
+    .then((x) => x.json())
+    .then((x) => [`${x.location.name} : ${x.current.temp_c}.0%c`]);
+}
+
+Promise.all(citys.map(getTemp))
+  .then((x) => Object.fromEntries(x))
+  .then((x) => console.log(x));
+```
+
+```js
+const citys = ["madurai", "Chennai", "Guntur"];
+async function getTemp(city) {
+  const file = await fetch(
+    `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=${city}&aqi=no`
+  );
+  const data = await file.json();
+  return [data.location.name, data.current.temp_c];
+}
+
+const output = await Promise.all(citys.map(getTemp));
+
+console.log(Object.fromEntries(output));
+
+// (async function getTemps() {
+//   const output = await Promise.all(citys.map(getTemp));
+//   console.log(Object.fromEntries(output));
+// })();
 ```

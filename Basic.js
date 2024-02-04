@@ -421,19 +421,19 @@
 
 // console.log(proInventory);
 
-const books = [
-  { title: "Book A", author: "Author 1", year: 1999 },
-  { title: "Book B", author: "Author 2", year: 2005 },
-  { title: "Book C", author: "Author 3", year: 2001 },
-  // more books...
-];
+// const books = [
+//   { title: "Book A", author: "Author 1", year: 1999 },
+//   { title: "Book B", author: "Author 2", year: 2005 },
+//   { title: "Book C", author: "Author 3", year: 2001 },
+//   // more books...
+// ];
 
-const comments = [
-  { commentId: "c1", text: "Comment 1" },
-  { commentId: "c2", text: "Comment 2", replyTo: "c1" },
-  { commentId: "c3", text: "Comment 3" },
-  // more comments...
-];
+// const comments = [
+//   { commentId: "c1", text: "Comment 1" },
+//   { commentId: "c2", text: "Comment 2", replyTo: "c1" },
+//   { commentId: "c3", text: "Comment 3" },
+//   // more comments...
+// ];
 
 // function msgRepect(nOfThings) {
 //   const msgInterval = setInterval(function () {
@@ -603,22 +603,71 @@ const comments = [
 //   .then((d) => console.log(d))
 //   .catch((s) => console.log(s));
 
-var f1 = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve("Manoj ");
-  }, 5000);
-});
-var f2 = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve("Neha");
-  }, 2000);
-});
-var f3 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    reject("Bhavani ");
-  }, 3000);
-});
+// var f1 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("Manoj ");
+//   }, 5000);
+// });
+// var f2 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve("Neha");
+//   }, 2000);
+// });
+// var f3 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     reject("Bhavani ");
+//   }, 3000);
+// });
 
-Promise.allSettled([f1, f2, f3])
-  .then((d) => console.log(d))
-  .catch((s) => console.log(s));
+// Promise.allSettled([f1, f2, f3]).then((d) => console.log(d));
+// .catch((s) => console.log(s));
+
+// var f1 = fetch(
+//   `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=Chennai&aqi=no`
+// )
+//   .then((x) => x.json())
+//   .then(
+//     (x) =>
+//       `${x.location.name} : ${x.current.temp_c}.0%c , ${x.current.temp_f}.0%f `
+//   );
+
+// var f2 = fetch(
+//   `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=madurai&aqi=no`
+// )
+//   .then((x) => x.json())
+//   .then(
+//     (x) =>
+//       `${x.location.name} : ${x.current.temp_c}.0%c , ${x.current.temp_f}.0%f `
+//   );
+
+// var f3 = fetch(
+//   `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=Guntur&aqi=no`
+// )
+//   .then((x) => x.json())
+//   .then(
+//     (x) =>
+//       `${x.location.name} : ${x.current.temp_c}.0%c , ${x.current.temp_f}.0%f `
+//   );
+
+// Promise.all([f1, f2, f3]).then((x) => console.log(...x,...x));
+
+// const citys = ["madurai", "Chennai", "Guntur"];
+// async function getTemp(city) {
+//   try {
+//     const file = await fetch(
+//       `http://api.weatherapi.com/v1/current.json?key=d330ceb9f182465dbff45041240102&q=${city}&aqi=no`
+//     ).catch((e)=>console.log(e));
+//     const data = await file.json();
+//     return [data.location.name, data.current.temp_c];
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
+// const output = await Promise.all(citys.map(getTemp));
+
+// console.log(Object.fromEntries(output));
+
+// (async function getTemps() {
+//   const output = await Promise.all(citys.map(getTemp));
+//   console.log(Object.fromEntries(output));
+// })();
