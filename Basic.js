@@ -671,3 +671,63 @@
 //   const output = await Promise.all(citys.map(getTemp));
 //   console.log(Object.fromEntries(output));
 // })();
+
+// Map((x) => x * 2, [4, 5, 6]);
+
+// function array(fun, arr) {
+//   var multiple;
+//   for (var i = 0; i <= 2; i++) {
+//     multiple = fun(arr[i], i);
+//   }
+//   return multiple;
+// }
+
+// console.log(array((x, i) => x * x * i, [4, 5, 6]));
+
+// var arr = [1, 2, 3];
+
+// const three = Promise.resolve("3");
+// const two = Promise.resolve("2");
+
+// const one = Promise.resolve("1");
+// const greeting = Promise.resolve("Happy New year");
+
+// Promise.all([
+//   setTimeout(() => {
+//     console.log(three);
+//   }, 1000),
+//   setTimeout(() => {
+//     console.log(two);
+//   }, 2000),
+//   setTimeout(() => {
+//     console.log(one);
+//   }, 3000),
+//   setTimeout(() => {
+//     console.log(greeting);
+//   }, 4000),
+// ]);
+
+var count = 3;
+// // var i = 1
+// function countGreeting(count) {
+//   setTimeout(function () {
+//     Promise.resolve(count).then(console.log);
+//     count--;
+//   }, 1000);
+
+//   if ((count = 0)) {
+//     setTimeout(function () {
+//       Promise.resolve("Happy New Year").then(console.log);
+//     }, 1000);
+//   }
+// }
+// countGreeting(count);
+
+function countGreetings(count) {
+  setTimeout(function () {
+    if (count > 0) {
+      console.log();
+    }
+    var msg = new Promise.resolve(count);
+  }, 1000);
+}

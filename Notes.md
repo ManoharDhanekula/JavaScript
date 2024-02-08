@@ -9,7 +9,6 @@
 
 - `ctrl + shifts + p` - Opening Search
 - `alt + arrow` - Move Line
--
 
 ### Copy by value
 
@@ -56,7 +55,7 @@ console.log(t1, t2, t3);
 ### Rest
 
 ```js
-const [t1, ...t2] = [100, 200],300,400;
+const [t1, ...t2] = [100, 200, 300, 400];
 console.log(t1, t2);
 ```
 
@@ -571,7 +570,7 @@ console.log(getDepartmentManager(company, "Engineering"));
 
 ## TASK 3: PRODUCT INVENTORY CHECK
 
-````js
+```js
 const stock = [
   { inventory: { count: 1 }, name: "Prod 1" },
   { inventory: { count: 0 }, name: "Prod 2" },
@@ -588,7 +587,8 @@ function isProductInStock(stock) {
   }
 }
 
-isProductInStock(stock);```
+isProductInStock(stock);
+```
 
 ## TASK 4: OPTIONAL CHAINING WITH ARRAYS
 
@@ -604,7 +604,7 @@ const getMatrixElement = (matrix, row, col) => {
   return element;
 };
 console.log(getMatrixElement(matrix, 2, 1));
-````
+```
 
 ---
 
